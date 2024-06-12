@@ -11,6 +11,7 @@ const App = () => {
       <Hello name={nimi} age={ika} />
     </div>
   )
+  
 }
 
 const Hello = (props) => {
@@ -23,5 +24,7 @@ const Hello = (props) => {
     </div>
   )
 }
+
+
 
 export default App
