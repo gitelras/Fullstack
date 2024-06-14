@@ -15,6 +15,13 @@ const App = () => {
     if (newName.trim() === '') {
       return
     }
+
+    const nameExists = persons.some(person => person.name === newName)
+    if (nameExists) {
+      alert(`The name ${newName} is already added to phonebook`)
+      return
+    }
+
     const nameObject = {
       name: newName
     }
@@ -44,3 +51,4 @@ const App = () => {
 }
 
 export default App
+
