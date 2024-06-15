@@ -13,8 +13,8 @@ const App = () => {
   useEffect(() => {
     personService
       .getAll()
-      .then(response => {
-        setPersons(response.data)
+      .then(initialPersons => {
+        setPersons(initialPersons)
       })
   }, [])
 
@@ -50,26 +50,23 @@ const App = () => {
 
     personService
       .create(nameObject)
-      .then(response => {
-        setPersons(persons.concat(nameObject))
+      .then(returnedPerson => {
+        setPersons(persons.concat(returnedPerson))
         setNewName('')
         setNewNumber('')
       })
-
-
   }
 
   const deletePerson = id => {
     const person = persons.find(p => p.id === id)
     if (window.confirm(`Do you really want to delete ${person.name}?`)) {
       personService
-        .detox(id)
+        .remove(id)
         .then(() => {
           setPersons(persons.filter(p => p.id !== id))
         })
     }
   }
-
 
   const personsToShow = filter === ''
     ? persons

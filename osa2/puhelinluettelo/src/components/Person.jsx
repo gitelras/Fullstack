@@ -10,4 +10,3 @@ const Person = ({ person, deletePerson }) => {
 }
 
 export default Person
-
