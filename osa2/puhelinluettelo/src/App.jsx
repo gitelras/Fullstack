@@ -66,7 +66,7 @@ const App = () => {
         showNotification(`Added ${returnedPerson.name}`, 'success')
       })
       .catch(error => {
-        showNotification(`Failed to add ${nameObject.name}`, 'error')
+        showNotification(error.response.data.error, 'error')
       })
   }
 
